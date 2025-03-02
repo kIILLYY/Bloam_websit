@@ -1,9 +1,22 @@
+<script>
+import Sidebar from "@/components/sidebar/Sidebar";
+import Footer from "@/components/Footer.vue";
+import { sidebarWidth } from "@/components/sidebar/state";
+import FooterScreen from "@/components/Footer.vue";
+export default {
+  components: { FooterScreen, Sidebar },
+  setup() {
+    return { sidebarWidth, Footer };
+  },
+};
+</script>
 <template>
-  <nav>
-    <router-link to="/">Home</router-link> |
-    <router-link to="/about">About</router-link>
-  </nav>
-  <router-view />
+  <Sidebar />
+  <div :style="{ 'margin-left': sidebarWidth }">
+    <router-view />
+  </div>
+  <FooterScreen />
+  <div :style="{ 'margin-bottom': Footer }"></div>
 </template>
 
 <style>
