@@ -49,7 +49,7 @@ export default {
     </div>
     <div class="w-full mt-10 border-t border-gray-300"></div>
     <div class="p-8">
-      <h1 class="text-4xl font-bold mb-8 mt-11">Our Team</h1>
+      <h1 class="text-4xl font-bold mb-8 mt-11">Link</h1>
       <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
         <div
           class="bg-white rounded-lg shadow-lg p-6 flex flex-col items-center"
