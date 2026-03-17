@@ -1,6 +1,12 @@
 <script>
 import SidebarLink from "./SidebarLink";
-import { collapsed, toggleSidebar, sidebarWidth } from "./state";
+import {
+  closeMobileMenu,
+  collapsed,
+  mobileMenuOpen,
+  sidebarWidth,
+  toggleSidebar,
+} from "./state";
 import ArrowIcon from "@/assets/icons/arrow.svg";
 import LogoIcon from "@/assets/icons/logo.png";
 import Logo2Icon from "@/assets/icons/logo2.png";
@@ -12,130 +18,98 @@ import LinkIcon from "@/assets/icons/Link.svg";
 
 export default {
   name: "AppSidebar",
+  components: { SidebarLink },
   data() {
     return {
       ArrowIcon,
       LogoIcon,
       Logo2Icon,
-      HomeIcon,
-      ProgrammationIcon,
-      GraphismeIcon,
-      GameDesignIcon,
-      LinkIcon,
+      navItems: [
+        { icon: HomeIcon, label: "Home", to: "/" },
+        {
+          icon: ProgrammationIcon,
+          label: "Programmation",
+          to: "/programmation",
+        },
+        { icon: GraphismeIcon, label: "Graphisme", to: "/graphisme" },
+        { icon: GameDesignIcon, label: "Game Design", to: "/gamedesign" },
+        { icon: LinkIcon, label: "Links", to: "/link" },
+      ],
     };
   },
-  methods: {
-    goToHome() {
-      this.$router.push("/");
-    },
-    goToProg() {
-      this.$router.push("/Programmation");
-    },
-    goToGraph() {
-      this.$router.push("/Graphisme");
-    },
-    goToGD() {
-      this.$router.push("/GameDesign");
-    },
-    goToLink() {
-      this.$router.push("/Link");
-    },
-  },
-  props: {},
-  components: { SidebarLink },
   setup() {
-    return { collapsed, toggleSidebar, sidebarWidth };
+    return {
+      closeMobileMenu,
+      collapsed,
+      mobileMenuOpen,
+      sidebarWidth,
+      toggleSidebar,
+    };
   },
 };
 </script>
 
 <template>
-  <div class="sidebar" :style="{ width: sidebarWidth }">
-    <h1>
-      <span v-if="collapsed">
-        <div class="font-bold text-2xl">
-          <img
-            :src="LogoIcon"
-            alt="BLOAM"
-            style="width: 30px; height: 30px"
-            @click="goToHome"
-            class="logo"
-          />
-        </div>
-      </span>
-      <span v-else class="font-bold text-2xl mb-7 block ml-5 mt-3">
-        <img
-          :src="Logo2Icon"
-          alt="BLOAM"
-          style="width: 110px; height: 90px"
-          @click="goToHome"
-          class="logo"
-        />
-      </span>
-    </h1>
-    <span v-if="collapsed">
-      <img
-        :src="HomeIcon"
-        alt="Home"
-        style="width: 25px; height: 25px"
-        class="logo2 icon mt-5 ml-0.5"
-        @click="goToHome"
-      />
-      <img
-        :src="ProgrammationIcon"
-        alt="Programmation"
-        style="width: 25px; height: 25px"
-        class="logo2 icon mt-5 ml-0.5"
-        @click="goToProg"
-      />
-      <img
-        :src="GraphismeIcon"
-        alt="Graphisme"
-        style="width: 25px; height: 25px"
-        class="logo2 icon mt-5 ml-0.5"
-        @click="goToGraph"
-      />
-      <img
-        :src="GameDesignIcon"
-        alt="GameDesign"
-        style="width: 25px; height: 25px"
-        class="logo2 icon mt-5 ml-0.5"
-        @click="goToGD"
-      />
-      <img
-        :src="LinkIcon"
-        alt="Link"
-        style="width: 25px; height: 25px"
-        class="logo2 icon mt-5 ml-0.5"
-        @click="goToLink"
-      />
-      <SidebarLink to="/programmation">Programmation</SidebarLink>
-      <SidebarLink to="/graphisme">Graphisme</SidebarLink>
-      <SidebarLink to="/gamedesign">Game Design</SidebarLink>
-      <SidebarLink to="/link">Link</SidebarLink>
-    </span>
-    <span v-else>
-      <SidebarLink to="/">Home</SidebarLink>
-      <SidebarLink to="/programmation">Programmation</SidebarLink>
-      <SidebarLink to="/graphisme">Graphisme</SidebarLink>
-      <SidebarLink to="/gamedesign">Game Design</SidebarLink>
-      <SidebarLink to="/link">Link</SidebarLink>
-    </span>
-    <span
+  <div
+    v-if="mobileMenuOpen"
+    class="sidebar-backdrop"
+    @click="closeMobileMenu"
+  ></div>
+  <aside
+    class="sidebar"
+    :class="{ collapsed, open: mobileMenuOpen }"
+    :style="{ '--sidebar-width': sidebarWidth }"
+  >
+    <div class="sidebar-header">
+      <div v-if="collapsed" class="brand">
+        <button class="brand-button" type="button" @click="$router.push('/')">
+          <img :src="LogoIcon" alt="BLOAM" class="brand-logo-small" />
+        </button>
+      </div>
+      <div v-else class="brand">
+        <button class="brand-button" type="button" @click="$router.push('/')">
+          <img :src="Logo2Icon" alt="BLOAM" class="brand-logo" />
+        </button>
+      </div>
+    </div>
+
+    <nav class="sidebar-nav" aria-label="Navigation principale">
+      <router-link
+        v-for="item in navItems"
+        :key="item.to"
+        :to="item.to"
+        class="sidebar-icon-link"
+        @click="closeMobileMenu"
+      >
+        <img :src="item.icon" :alt="item.label" class="sidebar-icon" />
+      </router-link>
+
+      <SidebarLink
+        v-for="item in navItems"
+        :key="`${item.to}-text`"
+        :to="item.to"
+      >
+        {{ item.label }}
+      </SidebarLink>
+    </nav>
+
+    <button
       class="collapse-icon"
       :class="{ 'rotate-180': collapsed }"
+      type="button"
+      aria-label="Réduire ou agrandir la sidebar"
       @click="toggleSidebar"
     >
-      <img :src="ArrowIcon" alt="Arrow" style="width: 30px; height: 30px" />
-    </span>
-  </div>
+      <img :src="ArrowIcon" alt="Arrow" class="arrow-icon" />
+    </button>
+  </aside>
 </template>
 
 <style>
 :root {
-  --sidebar-bg-color: #ffffff;
-  --sidebar-item-hover: #eeece2;
-  --sidebar-item-active: #eeece2;
+  --sidebar-bg-color: rgba(255, 255, 255, 0.88);
+  --sidebar-item-hover: rgba(15, 23, 42, 0.06);
+  --sidebar-item-active: rgba(209, 213, 219, 0.72);
 }
 </style>
 
@@ -143,49 +117,131 @@ export default {
 .sidebar {
   color: black;
   background-color: var(--sidebar-bg-color);
-  float: left;
   position: fixed;
-  z-index: 1;
+  z-index: 40;
   top: 0;
   left: 0;
   bottom: 0;
-  padding: 0.5rem;
-  transition: 0.3s ease;
+  width: var(--sidebar-width);
+  padding: 1rem 0.9rem;
+  transition: width 0.25s ease, transform 0.25s ease, box-shadow 0.25s ease;
   display: flex;
+  flex-direction: column;
+  border-right: 1px solid rgba(15, 23, 42, 0.08);
+  backdrop-filter: blur(18px);
+  box-shadow: 0 24px 60px rgba(15, 23, 42, 0.08);
+}
+
+.sidebar-header {
+  margin-bottom: 1.75rem;
+}
+
+.brand {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.brand-button {
+  padding: 0;
+  border: 0;
+  background: transparent;
+  cursor: pointer;
+}
+
+.brand-logo {
+  width: 124px;
+  height: auto;
+}
+
+.brand-logo-small {
+  width: 2.4rem;
+  height: 2.4rem;
+}
+
+.sidebar-nav {
+  display: flex;
+  flex: 1;
   flex-direction: column;
 }
 
+.sidebar-icon-link {
+  display: none;
+}
+
+.sidebar.collapsed .sidebar-icon-link {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 3rem;
+  margin: 0.35rem 0;
+  border-radius: 1rem;
+  transition: background-color 0.2s ease, transform 0.2s ease;
+}
+
+.sidebar.collapsed .sidebar-icon-link:hover,
+.sidebar.collapsed .sidebar-icon-link.router-link-active {
+  background-color: var(--sidebar-item-hover);
+  transform: translateY(-1px);
+}
+
+.sidebar.collapsed :deep(.link) {
+  display: none;
+}
+
+.sidebar-icon {
+  width: 1.5rem;
+  height: 1.5rem;
+}
+
 .collapse-icon {
-  position: absolute;
-  bottom: 0;
-  padding: 0.75em;
-  color: rgba(0, 0, 0, 0.7);
-  transition: 0.2s linear;
+  margin-top: auto;
+  align-self: flex-end;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 3rem;
+  height: 3rem;
+  border: 0;
+  border-radius: 999px;
+  background: rgba(15, 23, 42, 0.06);
+  transition: transform 0.2s linear, background-color 0.2s ease;
+  cursor: pointer;
+}
+
+.collapse-icon:hover {
+  background: rgba(15, 23, 42, 0.1);
 }
 
 .rotate-180 {
   transform: rotate(180deg);
-  transition: 0.2s linear;
 }
 
-.logo {
-  cursor: pointer;
+.arrow-icon {
+  width: 1.35rem;
+  height: 1.35rem;
 }
 
-.logo2 {
-  cursor: pointer;
-  margin: 1.3em 0;
-  border-radius: 0.25em;
-  height: 1.5em;
+.sidebar-backdrop {
+  position: fixed;
+  inset: 0;
+  background: rgba(15, 23, 42, 0.45);
+  backdrop-filter: blur(2px);
+  z-index: 30;
 }
 
-.logo2:hover {
-  backdrop-color: var(--sidebar-item-hover);
-  background-color: var(--sidebar-item-hover);
-}
+@media (max-width: 1023px) {
+  .sidebar {
+    transform: translateX(-100%);
+    width: min(20rem, 84vw);
+  }
 
-.logo2.active {
-  backdrop-color: var(--sidebar-item-active);
-  background-color: var(--sidebar-item-active);
+  .sidebar.open {
+    transform: translateX(0);
+  }
+
+  .collapse-icon {
+    display: none;
+  }
 }
 </style>
