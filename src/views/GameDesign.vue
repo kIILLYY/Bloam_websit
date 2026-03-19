@@ -8,13 +8,13 @@
         class="hero-orb bottom-[8rem] right-[-5rem] h-44 w-44 bg-pink-200/45 sm:h-80 sm:w-80"
       ></div>
       <div class="hero-panel">
-        <span class="eyebrow">Vision & narration</span>
-        <h1 class="page-title">Game Design</h1>
+        <span class="eyebrow">Structure du projet</span>
+        <h1 class="page-title">Architecture / Projet</h1>
         <p class="page-subtitle">
-          Structure narrative, progression emotionnelle et conception des
-          niveaux de Final Dream.
+          L'organisation technique qui relie les modules, garantit les
+          performances et prepare l'evolution du logiciel.
         </p>
-        <a href="#about-us" class="hero-cta">Scenario</a>
+        <a href="#about-us" class="hero-cta">Voir l'architecture</a>
       </div>
     </section>
 
@@ -23,19 +23,38 @@
     <section id="about-us" class="content-section text-left">
       <div class="info-grid">
         <article class="content-card">
-          <h2>Scenario</h2>
+          <h2>Organisation du projet</h2>
           <p>
-            Le scenario de Final Dream s'articule autour de la redemption et de
-            l'acceptation de soi, avec une mise en scene onirique qui donne du
-            poids emotionnel a chaque acte du jeu.
+            Ce module assure la cohesion entre le moteur de traitement, la GUI,
+            la gestion des projets et les fonctionnalites avancees. Il definit
+            une structure modulaire claire pour permettre au projet de rester
+            comprehensible, maintenable et simple a faire evoluer.
           </p>
         </article>
         <article class="content-card">
-          <h2>Design de niveaux</h2>
+          <h2>Performances et format de projet</h2>
           <p>
-            Chaque environnement traduit une etape du parcours d'Elena. Le
-            design cooperative, inspire par des references modernes, soutient a
-            la fois les enigmes, le rythme et l'immersion.
+            L'architecture doit favoriser une application reactive, capable de
+            gerer des calculs couteux sans bloquer l'interface. Elle couvre
+            aussi la sauvegarde et le chargement des projets, avec une attention
+            particuliere a la compatibilite des fichiers dans le temps.
+          </p>
+        </article>
+        <article class="content-card">
+          <h2>Objectif global</h2>
+          <p>
+            L'objectif est de simplifier le travail en equipe, de clarifier les
+            responsabilites techniques et de fournir une base solide pour le
+            deploiement, la maintenance et les futures extensions du logiciel.
+          </p>
+        </article>
+        <article class="content-card">
+          <h2>Fonctionnalites avancees</h2>
+          <p>
+            Cette partie coordonne egalement les besoins lies aux calques, aux
+            masques, aux selections, a l'historique des modifications et aux
+            raccourcis clavier afin de garantir une integration coherente dans
+            tout le projet.
           </p>
         </article>
       </div>

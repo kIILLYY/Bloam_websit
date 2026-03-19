@@ -1,9 +1,8 @@
 <script>
-import BenjaminIcon from "@/assets/icons/Ben.jpg";
-import MatIcon from "@/assets/icons/mat.jpg";
+import BenjaminIcon from "@/assets/icons/A.png";
+import MatIcon from "@/assets/icons/Al.png";
 import AlexIcon from "@/assets/icons/Alex.jpeg";
-import LeonIcon from "@/assets/icons/Leon.jpg";
-import OrenIcon from "@/assets/icons/Oren.jpg";
+import LeonIcon from "@/assets/icons/N.png";
 
 export default {
   name: "HomeView",
@@ -13,7 +12,6 @@ export default {
       MatIcon,
       AlexIcon,
       LeonIcon,
-      OrenIcon,
     };
   },
 };
@@ -29,57 +27,59 @@ export default {
         class="hero-orb bottom-[8rem] right-[-4rem] h-44 w-44 bg-amber-200/60 sm:h-80 sm:w-80"
       ></div>
       <div class="hero-panel">
-        <span class="eyebrow">Studio creatif & technique</span>
-        <h1 class="page-title">BLOAM<br />Corporation</h1>
+        <span class="eyebrow">Projet EPITA 2026</span>
+        <h1 class="page-title">Projet RUST<br />Traitement d'images</h1>
         <p class="page-subtitle">
-          Ou creativite et technologie se rencontrent au carrefour du logiciel,
-          du design, de l'art et du marketing numerique.
+          Une application de traitement d'images developpee en Rust sous Linux,
+          concue pour combiner performances, modularite et clarte technique.
         </p>
-        <a href="#about-us" class="hero-cta">About us</a>
+        <a href="#about-us" class="hero-cta">Decouvrir le projet</a>
       </div>
     </section>
 
     <div class="section-divider"></div>
 
     <section id="about-us" class="content-section text-left">
-      <h1 class="section-heading">About us</h1>
+      <h1 class="section-heading">Presentation</h1>
       <p class="section-intro">
-        Chez BLOAM, nous croyons que la technologie et la creativite ont le
-        pouvoir de transformer les industries et d'inspirer l'innovation.
+        Le projet vise a realiser un logiciel complet de traitement d'images,
+        capable de charger, analyser, transformer et sauvegarder des images tout
+        en proposant une interface graphique accessible et evolutive.
       </p>
 
       <div class="info-grid mt-10">
         <article class="content-card">
-          <h2>Nous creons a la croisee des chemins</h2>
+          <h2>Noyau de traitement d'image</h2>
           <p>
-            Notre travail se situe a l'intersection de la creativite et de la
-            technologie. Nous developpons des logiciels de pointe, concevons des
-            designs immersifs et proposons des solutions artistiques qui
-            repoussent les limites.
+            Le coeur du projet repose sur un module Rust charge de manipuler les
+            pixels, d'appliquer les transformations et d'executer les
+            algorithmes de pre-traitement comme le flou, le sharpen, le Sobel ou
+            encore les ajustements de luminosite et de contraste.
           </p>
         </article>
         <article class="content-card">
-          <h2>La creativite rencontre la precision</h2>
+          <h2>Interface graphique</h2>
           <p>
-            Nous abordons chaque projet comme un equilibre entre art et
-            ingenierie. Du codage a la narration, notre equipe integre ces
-            elements pour produire des solutions aussi precises qu'imaginatives.
+            L'application doit permettre de charger, afficher, zoomer, deplacer
+            et modifier une image depuis une GUI claire, avec menus, boutons,
+            sliders et raccourcis clavier adaptes aux usages reels.
           </p>
         </article>
         <article class="content-card">
-          <h2>L'innovation nous guide</h2>
+          <h2>Architecture modulaire</h2>
           <p>
-            Notre engagement envers l'innovation est au coeur de tout ce que
-            nous faisons. Chaque projet reflete notre passion pour l'alliance
-            entre technologie et creativite.
+            Le projet est organise autour d'un package Cargo unique, d'une
+            separation nette entre modules et d'une structure interne pensee
+            pour maintenir la lisibilite du code, les performances et la
+            possibilite d'ajouter de nouvelles fonctionnalites.
           </p>
         </article>
         <article class="content-card">
-          <h2>Vers l'avenir</h2>
+          <h2>Livrables et valorisation</h2>
           <p>
-            Nous sommes determines a batir un avenir ou la technologie et la
-            creativite se rejoignent pour transformer la maniere dont les idees
-            prennent vie.
+            Le site web accompagne le logiciel en centralisant la presentation
+            du projet, les roles de l'equipe, les rapports, les documents de
+            conception et les resultats obtenus tout au long du developpement.
           </p>
         </article>
       </div>
@@ -88,22 +88,24 @@ export default {
     <div class="section-divider"></div>
 
     <section class="content-section text-left">
-      <h1 class="section-heading">Our Team</h1>
+      <h1 class="section-heading">Equipe projet</h1>
       <div class="team-grid">
         <article class="profile-card">
-          <img alt="Leon" class="profile-image" :src="LeonIcon" />
-          <h2 class="profile-name">Leon Moneger</h2>
+          <img alt="Hulic-Menclé Nael" class="profile-image" :src="LeonIcon" />
+          <h2 class="profile-name">Hulic-Menclé Nael</h2>
           <p class="profile-role">
-            Directeur du design UI/UX, travaillant a creer une interface
-            intuitive et attrayante pour les utilisateurs.
+            Responsable des interactions utilisateur, de la gestion des
+            evenements souris/clavier et des fonctions d'analyse comme la
+            detection de contours et de formes.
           </p>
         </article>
         <article class="profile-card">
-          <img alt="Matteo Galus" class="profile-image" :src="MatIcon" />
-          <h2 class="profile-name">Matteo Galus</h2>
+          <img alt="Alexandre Zhou-hu" class="profile-image" :src="MatIcon" />
+          <h2 class="profile-name">Alexandre Zhou-hu</h2>
           <p class="profile-role">
-            Directeur du developpement technique du jeu, veillant a garantir une
-            jouabilite fluide et un code optimise.
+            Charge de l'architecture du projet, de l'organisation technique, des
+            performances globales, du format de projet et de la coherence entre
+            tous les modules de l'application.
           </p>
         </article>
         <article class="profile-card">
@@ -114,28 +116,17 @@ export default {
           />
           <h2 class="profile-name">Alexandre Abbruzzese</h2>
           <p class="profile-role">
-            Expert du web et du storytelling numerique, en charge des
-            architectures modernes et de l'experience narrative.
+            Responsable du module de pre-traitement et d'amelioration d'images,
+            ainsi que du developpement du site web de presentation du projet.
           </p>
         </article>
         <article class="profile-card">
-          <img
-            alt="Benjamin Poussart"
-            class="profile-image"
-            :src="BenjaminIcon"
-          />
-          <h2 class="profile-name">Benjamin Poussart</h2>
+          <img alt="Hengrui Ye" class="profile-image" :src="BenjaminIcon" />
+          <h2 class="profile-name">Hengrui Ye</h2>
           <p class="profile-role">
-            Expert technique de premier plan, responsable des architectures
-            complexes et de l'integration fluide entre front-end et back-end.
-          </p>
-        </article>
-        <article class="profile-card">
-          <img alt="Oren" class="profile-image" :src="OrenIcon" />
-          <h2 class="profile-name">Oren Guetta</h2>
-          <p class="profile-role">
-            Artiste polyvalent du groupe, il enrichit les projets de BLOAM pa
-            une direction visuelle forte et une sensibilite artistique unique.
+            En charge des fonctionnalites avancees et de l'experience
+            utilisateur: calques, masques, selection, historique Undo/Redo,
+            raccourcis clavier et outil pinceau.
           </p>
         </article>
       </div>

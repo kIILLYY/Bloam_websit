@@ -2,23 +2,18 @@
   <footer class="footer">
     <div class="container">
       <p class="footer-text">
-        © 2025 BLOAM Corporation. Rapport de projet SUP1.
+        © 2026 Projet RUST. Site de presentation du logiciel de traitement
+        d'images.
       </p>
       <ul class="footer-links">
         <li>
-          <a href="https://instagram.com" target="_blank" rel="noopener"
-            >Instagram</a
-          >
+          <a href="/programmation">Traitement d'image</a>
         </li>
         <li>
-          <a href="https://twitter.com" target="_blank" rel="noopener"
-            >Twitter</a
-          >
+          <a href="/graphisme">Interface graphique</a>
         </li>
         <li>
-          <a href="https://linkedin.com" target="_blank" rel="noopener"
-            >LinkedIn</a
-          >
+          <a href="/link">Ressources</a>
         </li>
       </ul>
     </div>

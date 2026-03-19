@@ -8,13 +8,13 @@
         class="hero-orb bottom-[8rem] right-[-5rem] h-44 w-44 bg-orange-200/55 sm:h-80 sm:w-80"
       ></div>
       <div class="hero-panel">
-        <span class="eyebrow">Direction artistique</span>
-        <h1 class="page-title">Graphisme</h1>
+        <span class="eyebrow">Interface utilisateur</span>
+        <h1 class="page-title">Interface graphique</h1>
         <p class="page-subtitle">
-          Chez BLOAM, le developpement graphique depasse le simple design pou
-          devenir une signature visuelle coherente et memorable.
+          Une GUI pensee pour charger, afficher et modifier des images de
+          maniere claire, fluide et accessible.
         </p>
-        <a href="#about-us" class="hero-cta">Character Development</a>
+        <a href="#about-us" class="hero-cta">Voir les objectifs</a>
       </div>
     </section>
 
@@ -23,13 +23,13 @@
     <section id="about-us" class="content-section text-left">
       <div class="info-grid">
         <article class="content-card">
-          <h2>Character Development</h2>
+          <h2>Role du module</h2>
           <p>
             {{ description }}
           </p>
         </article>
         <article class="content-card">
-          <h2>Design de Milo et Elena</h2>
+          <h2>Fenetre principale et affichage</h2>
           <p>
             {{ description10 }}
           </p>
@@ -38,7 +38,7 @@
           </p>
         </article>
         <article class="content-card">
-          <h2>Decor Development</h2>
+          <h2>Menus et actions principales</h2>
           <p>
             {{ description2 }}
           </p>
@@ -47,13 +47,13 @@
           </p>
         </article>
         <article class="content-card">
-          <h2>Teleportation et enrichissement visuel</h2>
+          <h2>Outils, boutons et sliders</h2>
           <p>
             {{ description5 }}
           </p>
         </article>
         <article class="content-card md:col-span-2">
-          <h2>Interface / Musique</h2>
+          <h2>Ergonomie et interactions</h2>
           <div class="rich-text">
             <p>{{ description3 }}</p>
             <p class="mt-4">{{ description6 }}</p>
@@ -72,27 +72,27 @@ export default {
   data() {
     return {
       description:
-        "Creation sur personnage generique : avant de concevoir les personnages finaux, toutes les animations ont ete testees sur un modele simplifie afin de valider les mouvements indispensables au gameplay comme l'inactivite, la course, le saut et l'accroupissement.",
+        "La partie interface graphique regroupe tout ce que l'utilisateur voit et manipule dans l'application. Elle est responsable de la fenetre principale, de l'affichage de l'image, des menus, des sliders et des interactions clavier ou souris.",
       description2:
-        "Creation de maps avec palette et tileset : la construction des maps repose sur des environnements coherents, lisibles et immersifs, avec une organisation claire des tuiles pour accelerer la production et garantir l'homogeneite graphique.",
+        "Des actions essentielles comme Open, Save et l'acces aux filtres doivent etre disponibles depuis des menus clairs. L'utilisateur peut ainsi charger une image, appliquer des traitements, puis enregistrer le resultat sans passer par la ligne de commande.",
       description4:
-        "Systeme de teleportation : l'interconnexion entre zones utilise des colliders et des tags afin d'assurer des transitions precises, maintenables et faciles a ajuster dans l'editeur.",
+        "Le systeme doit aussi integrer des commandes Undo et Redo afin de revenir rapidement sur une modification ou de reconstituer une etape precedente de travail.",
       description5:
-        "Prefabs de teleporteurs et enrichissement visuel : les prefabs assurent la coherence fonctionnelle et graphique, tandis que les backgrounds et objets de decor renforcent l'immersion generale.",
+        "La barre d'outils regroupe les actions frequentes comme le zoom, la selection, le dessin, le recadrage ou les reglages visuels. Les sliders permettent d'ajuster en continu le flou, la luminosite, le contraste ou l'intensite d'un effet.",
       description3:
-        "Creation du menu principal : l'equipe a imagine un menu original, onirique et plus expressif, avec des variations visuelles et des effets de survol pour renforcer la lisibilite et l'identite du jeu.",
+        "L'interface doit rester simple a prendre en main tout en proposant des retours visuels immediats. Certains ajustements doivent etre visibles en temps reel pour aider l'utilisateur a comprendre l'impact de ses reglages.",
       description6:
-        "Musique du menu : une ambiance aerienne et immersive a ete composee pour introduire l'univers des reves avec une texture sonore douce et progressive.",
+        "La souris sert a selectionner, dessiner, deplacer l'image ou definir une zone de travail. Le clic-glisser et la molette doivent etre utilises pour proposer une navigation fluide dans l'image.",
       description7:
-        "Musique du premier niveau : une base rythmique plus dynamique a ete creee pour capter l'attention du joueur des les premieres secondes et soutenir son engagement.",
+        "Le clavier complete l'interface avec des raccourcis pour les actions recurrentes, comme sauvegarder, annuler ou activer certains outils, afin d'accelerer le flux de travail.",
       description8:
-        "Musique du deuxieme niveau : le tempo s'accelere et la texture sonore gagne en intensite pour accompagner une phase plus exigeante et energique du jeu.",
+        "Le framework graphique retenu devra prendre en charge l'affichage d'images, la gestion des fenetres, les boutons et la portabilite entre plateformes, avec une preference pour une solution robuste en Rust.",
       description9:
-        "Musique du dernier niveau : la composition revient vers une atmosphere plus calme pour conclure l'experience de maniere contemplative et coherente.",
+        "L'ensemble du module doit centraliser les evenements et transmettre des messages clairs au moteur de traitement afin de synchroniser l'etat de l'image et celui de l'interface.",
       description10:
-        "Design et animation de Milo : son apparence et ses animations ont ete travailleees image par image en pixel art pour obtenir un personnage principal vivant, lisible et expressif.",
+        "La fenetre principale doit afficher l'image courante en respectant son ratio et sa resolution. Elle doit aussi prendre en charge le zoom, le pan et le redimensionnement de la fenetre sans perte de lisibilite.",
       description11:
-        "Design et animation d'Elena : le second personnage jouable reprend les bases techniques posees pour Milo tout en conservant une silhouette et des details propres pour une meilleure distinction visuelle.",
+        "A chaque modification appliquee, l'affichage doit etre mis a jour de facon reactive afin que l'utilisateur puisse enchainer les operations sans rupture dans l'experience.",
     };
   },
 };

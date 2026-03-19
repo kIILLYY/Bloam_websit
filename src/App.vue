@@ -30,8 +30,8 @@ export default {
         <span></span>
       </button>
       <div class="mobile-brand">
-        <span class="mobile-brand-title">BLOAM</span>
-        <span class="mobile-brand-subtitle">Corporation</span>
+        <span class="mobile-brand-title">Projet RUST</span>
+        <span class="mobile-brand-subtitle">Traitement d'images</span>
       </div>
     </header>
     <main class="app-content">

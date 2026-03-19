@@ -25,15 +25,15 @@ export default {
       LogoIcon,
       Logo2Icon,
       navItems: [
-        { icon: HomeIcon, label: "Home", to: "/" },
+        { icon: HomeIcon, label: "Accueil", to: "/" },
         {
           icon: ProgrammationIcon,
-          label: "Programmation",
+          label: "Image Core",
           to: "/programmation",
         },
-        { icon: GraphismeIcon, label: "Graphisme", to: "/graphisme" },
-        { icon: GameDesignIcon, label: "Game Design", to: "/gamedesign" },
-        { icon: LinkIcon, label: "Links", to: "/link" },
+        { icon: GraphismeIcon, label: "Interface", to: "/graphisme" },
+        { icon: GameDesignIcon, label: "Architecture", to: "/gamedesign" },
+        { icon: LinkIcon, label: "Ressources", to: "/link" },
       ],
     };
   },
@@ -63,12 +63,12 @@ export default {
     <div class="sidebar-header">
       <div v-if="collapsed" class="brand">
         <button class="brand-button" type="button" @click="$router.push('/')">
-          <img :src="LogoIcon" alt="BLOAM" class="brand-logo-small" />
+          <img :src="LogoIcon" alt="Projet RUST" class="brand-logo-small" />
         </button>
       </div>
       <div v-else class="brand">
         <button class="brand-button" type="button" @click="$router.push('/')">
-          <img :src="Logo2Icon" alt="BLOAM" class="brand-logo" />
+          <img :src="Logo2Icon" alt="Projet RUST" class="brand-logo" />
         </button>
       </div>
     </div>

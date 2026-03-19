@@ -8,46 +8,43 @@
         class="hero-orb bottom-[8rem] right-[-5rem] h-44 w-44 bg-emerald-200/50 sm:h-80 sm:w-80"
       ></div>
       <div class="hero-panel">
-        <span class="eyebrow">Programmation</span>
-        <h1 class="page-title">Programmation</h1>
+        <span class="eyebrow">Module principal</span>
+        <h1 class="page-title">Image Processing Core</h1>
         <p class="page-subtitle">
-          Developpement de Final Dream, un jeu de plateforme coop en LAN.
+          Le coeur algorithmique du projet, dedie au chargement, a la
+          representation interne et aux transformations d'images.
         </p>
-        <a
-          href="https://github.com/BenjaminP142/Final-Dream"
-          class="hero-cta"
-          target="_blank"
-          rel="noopener"
-        >
-          GitHub
-        </a>
+        <a href="#image-core" class="hero-cta">Voir le module</a>
       </div>
     </section>
 
     <div class="section-divider"></div>
 
-    <section class="content-section text-left">
+    <section id="image-core" class="content-section text-left">
       <div class="info-grid">
         <article class="content-card md:col-span-2">
-          <h2>Implementation du mode multijoueur en LAN</h2>
+          <h2>Representation interne et entrees/sorties</h2>
           <div class="rich-text">
-            <h2>Architecture reseau choisie</h2>
+            <h2>Role du module</h2>
             <p>
-              Le projet s'appuie sur une architecture multijoueur en reseau
-              local afin de reduire la latence, simplifier l'implementation et
-              favoriser une experience plus directe entre joueurs.
+              Ce module constitue la base technique de l'application. Il gere
+              l'ensemble des operations de bas niveau liees a la manipulation
+              des pixels, a l'application des transformations et a l'execution
+              des traitements d'image.
             </p>
-            <h2>Architecture technique</h2>
+            <h2>Structures de donnees</h2>
             <p>
-              Le joueur hote gere l'etat du jeu, la synchronisation des donnees
-              et la coordination des actions, tandis que le client envoie ses
-              interactions et recoit les mises a jour necessaires.
+              L'architecture interne repose sur des structures telles que
+              `Pixel`, `Image` et `Layer`, afin de conserver un controle fin sur
+              l'organisation memoire et d'eviter les copies inutiles lors des
+              traitements.
             </p>
-            <h2>Interface de connexion</h2>
+            <h2>Chargement et sauvegarde</h2>
             <p>
-              L'ecran de connexion a ete pense pour rester simple: l'hote lance
-              une partie, partage son IP locale, puis le client rejoint via un
-              champ dedie avant l'entree simultanee en jeu.
+              Les formats PNG, JPEG et BMP sont pris en charge. La crate `image`
+              sert de couche d'entree/sortie, puis les donnees sont converties
+              dans une representation interne unique pour garantir des
+              traitements coherents.
             </p>
           </div>
         </article>
@@ -59,26 +56,27 @@
     <section class="content-section text-left">
       <div class="info-grid">
         <article class="content-card md:col-span-2">
-          <h2>Implementation de l'intelligence artificielle</h2>
+          <h2>Algorithmes de traitement d'image</h2>
           <div class="rich-text">
-            <h2>Vue d'ensemble</h2>
+            <h2>Transformations globales</h2>
             <p>
-              L'intelligence artificielle des ennemis repose sur un systeme de
-              detection de cibles et un pathfinding A* pour garantir des
-              comportements coherents dans des environnements contraints.
+              Le module integre des operations classiques comme la conversion en
+              niveaux de gris, l'inversion des couleurs, ainsi que les
+              ajustements de luminosite et de contraste.
             </p>
-            <h2>Algorithme A*</h2>
+            <h2>Filtres avances</h2>
             <p>
-              L'implementation combine cout reel et heuristique afin de trouve
-              des chemins efficaces tout en limitant les recalculs, avec une
-              discretisation de l'environnement en grille et plusieurs
-              optimisations de performance.
+              Des traitements plus pousses sont prevus, notamment le flou, le
+              sharpen et la detection de contours avec des operateurs comme
+              Sobel, afin de couvrir des cas concrets d'amelioration et
+              d'analyse visuelle.
             </p>
-            <h2>Selection de cibles</h2>
+            <h2>Transformations geometriques</h2>
             <p>
-              En multijoueur, les ennemis priorisent le joueur le plus proche,
-              ce qui renforce la lisibilite de leurs comportements et la
-              coherence du gameplay.
+              Le rognage, le redimensionnement et la rotation font partie des
+              fonctions essentielles du projet. Leur implementation manuelle
+              permet de mieux controler la qualite du resultat et les couts de
+              calcul.
             </p>
           </div>
         </article>
@@ -88,30 +86,26 @@
     <section class="content-section text-left pt-0">
       <div class="info-grid">
         <article class="content-card md:col-span-2">
-          <h2>Avancees ennemis et attaques</h2>
+          <h2>API du module et resultats attendus</h2>
           <div class="rich-text">
-            <h2>Systeme d'ennemis</h2>
+            <h2>Interface de programmation</h2>
             <p>
-              Deux familles d'ennemis principales ont ete integrees avec des
-              animations, colliders, et comportements adaptes au rythme du jeu.
+              L'API doit rester simple, lisible et composable, afin de pouvoir
+              enchainer plusieurs operations sur une image depuis l'interface
+              graphique ou d'autres modules internes.
             </p>
-            <h2>Mouvements et personnage</h2>
+            <h2>Exigences de qualite</h2>
             <p>
-              Le personnage principal utilise Rigidbody 2D et des animations
-              synchronisees pour offrir des deplacements precis, reactifs et
-              lisibles en solo comme en coop.
+              Le code suit une organisation modulaire claire, une compilation
+              sans warnings et une execution centralisee par Cargo pour assurer
+              un developpement maintenable et fiable.
             </p>
-            <h2>Sante et interface</h2>
+            <h2>Resultat final vise</h2>
             <p>
-              Le systeme de vie s'appuie sur une logique modulaire et une UI
-              claire avec feedback visuel pour communiquer l'etat du joueu sans
-              alourdir l'ecran.
-            </p>
-            <h2>Attaques et environnement</h2>
-            <p>
-              Les attaques, les zones de danger et les transitions de niveau ont
-              ete structurees pour enrichir le gameplay tout en gardant une
-              sensation fluide et immediate.
+              A terme, ce composant doit fournir un moteur stable et performant
+              capable de charger, manipuler, transformer et sauvegarder des
+              images dans plusieurs formats, tout en servant de fondation au
+              reste de l'application.
             </p>
           </div>
         </article>

@@ -10,27 +10,27 @@ export default {
     return {
       resources: [
         {
-          title: "GitHub",
-          copy: "Depot source du projet Final Dream.",
-          href: "https://github.com/BenjaminP142/Final-Dream",
+          title: "Depot GitHub",
+          copy: "Code source du projet Rust et suivi de l'avancement technique.",
+          href: "https://github.com/Alexandre-zhou/Projet-rust-s4",
           image: GitHubIcon,
         },
         {
           title: "Rapport",
-          copy: "Version telechargeable du rapport de projet.",
-          href: "/Document/Rapport.pdf",
+          copy: "Version telechargeable du rapport et des livrables du projet.",
+          href: "",
           image: RapportIcon,
         },
         {
-          title: "Scenario",
-          copy: "Document de travail pour la structure narrative du jeu.",
-          href: "https://docs.google.com/document/d/1DfoflMuUmVMQgiQ66Dki-RWxSBtyq0VO3jHOtcKTxfc/edit?tab=t.0",
+          title: "Cahier des charges",
+          copy: "Document de reference pour les objectifs, modules et attendus.",
+          href: "https://docs.google.com/document/d/1nBYMp7UcQn_E4rz20eZmbtQuvAskiB9P3PJrdFC2vvA/edit?tab=t.0",
           image: ScenarioIcon,
         },
         {
-          title: "Game Design",
-          copy: "Reference de conception sur les mecaniques et l'experience.",
-          href: "https://docs.google.com/document/d/1DfoflMuUmVMQgiQ66Dki-RWxSBtyq0VO3jHOtcKTxfc/edit?tab=t.0",
+          title: "Synopsis",
+          copy: "Notes de conception sur l'architecture, l'interface et l'UX.",
+          href: "https://docs.google.com/document/d/1pWLY_FIw7YaMLyKQoTJGXgPO97QHz-d_kY36P7keqDQ/edit?tab=t.0",
           image: GamedesignIcon,
         },
       ],
@@ -50,19 +50,19 @@ export default {
       ></div>
       <div class="hero-panel">
         <span class="eyebrow">Ressources du projet</span>
-        <h1 class="page-title">Links</h1>
+        <h1 class="page-title">Ressources</h1>
         <p class="page-subtitle">
           Tous les acces rapides vers le depot, le rapport et les documents de
-          conception du projet.
+          reference lies au projet de traitement d'images en Rust.
         </p>
-        <a href="#all-links" class="hero-cta">All Links</a>
+        <a href="#all-links" class="hero-cta">Voir les ressources</a>
       </div>
     </section>
 
     <div class="section-divider"></div>
 
     <section id="all-links" class="content-section text-left">
-      <h1 class="section-heading">Link</h1>
+      <h1 class="section-heading">Documents et acces</h1>
       <div class="resource-grid">
         <a
           v-for="resource in resources"
