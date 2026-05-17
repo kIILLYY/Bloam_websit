@@ -18,8 +18,9 @@ export default {
         {
           title: "Rapport",
           copy: "Version telechargeable du rapport et des livrables du projet.",
-          href: "",
+          href: "/Document/rapp.pdf",
           image: RapportIcon,
+          download: "rapp.pdf",
         },
         {
           title: "Cahier des charges",
@@ -68,6 +69,7 @@ export default {
           v-for="resource in resources"
           :key="resource.title"
           :href="resource.href"
+          :download="resource.download || null"
           class="resource-card"
           target="_blank"
           rel="noopener"
